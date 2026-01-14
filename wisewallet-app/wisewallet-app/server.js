@@ -38,6 +38,61 @@ app.get('/api/status', (req, res) => {
     });
 });
 
+// --- API: Expenses (GET with filters, POST to create) ---
+app.get('/api/expenses', async (req, res) => {
+    try {
+        const q = req.query || {}
+        const {
+            user_id,
+            min_amount,
+            max_amount,
+            start_date,
+            end_date,
+            category_id,
+            currency,
+            description_like,
+            limit = 100,
+            offset = 0,
+            order_by = 'expense_date',
+            order_dir = 'desc'
+        } = q
+
+        let query = supabase.from('expenses').select('*')
+
+        if (user_id) query = query.eq('user_id', user_id)
+        if (category_id) query = query.eq('category_id', category_id)
+        if (currency) query = query.eq('currency', currency)
+        if (min_amount) query = query.gte('amount', Number(min_amount))
+        if (max_amount) query = query.lte('amount', Number(max_amount))
+        if (start_date) query = query.gte('expense_date', start_date)
+        if (end_date) query = query.lte('expense_date', end_date)
+        if (description_like) query = query.ilike('description', `%${description_like}%`)
+
+        query = query.order(order_by, { ascending: order_dir.toLowerCase() === 'asc' })
+        query = query.range(Number(offset), Number(offset) + Number(limit) - 1)
+
+        const { data, error } = await query
+        if (error) return res.status(500).json({ error: error.message })
+        return res.json({ data })
+    } catch (e) {
+        return res.status(500).json({ error: e.message || String(e) })
+    }
+})
+
+app.post('/api/expenses', async (req, res) => {
+    try {
+        const payload = req.body || {}
+        if (!payload.amount || !payload.expense_date || !payload.user_id) {
+            return res.status(400).json({ error: 'Missing required fields: amount, expense_date, user_id' })
+        }
+        const { data, error } = await supabase.from('expenses').insert([payload]).select().single()
+        if (error) return res.status(500).json({ error: error.message })
+        return res.status(201).json({ data })
+    } catch (e) {
+        return res.status(500).json({ error: e.message || String(e) })
+    }
+})
+
 // ... (Outras rotas /gemini-chat, /login, etc...) ...
 
 
