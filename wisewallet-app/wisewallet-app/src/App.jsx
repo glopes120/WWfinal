@@ -8,6 +8,7 @@ import BottomNav from './components/BottomNav';
 import UpdatePassword from './components/UpdatePassword';
 import Modal from './components/Modal';
 import AIAssistant from './components/AIAssistant';
+import LandingPage from './components/LandingPage'; // <-- IMPORTA A NOVA LANDING PAGE
 
 import { useAppContext } from './contexts/AppContext';
 
@@ -16,6 +17,9 @@ function App() {
     const [activeMenuItem, setActiveMenuItem] = useState('Dashboard');
     const [isRecoveryMode, setIsRecoveryMode] = useState(false);
     const [isAIAssistantModalOpen, setIsAIAssistantModalOpen] = useState(false);
+    
+    // NOVO ESTADO: Controla se mostramos o login ou a landing page quando não há sessão
+    const [showLogin, setShowLogin] = useState(false);
 
     const refreshSession = async () => {
         const { data: { session: newSession } } = await supabase.auth.getSession();
@@ -47,6 +51,7 @@ function App() {
 
     const openAIAssistant = () => setIsAIAssistantModalOpen(true);
 
+    // 1. Prioridade Máxima: Recuperação de Password
     if (isRecoveryMode) {
         return (
             <UpdatePassword
@@ -55,13 +60,42 @@ function App() {
         );
     }
 
+    // 2. Se o utilizador NÃO estiver autenticado
     if (!session) {
+        // 2a. Se ele clicou em "Login" na Landing Page, mostra o formulário
+        if (showLogin) {
+            return (
+                <div className="App">
+                    {/* Botão simples para voltar à Landing Page */}
+                    <button 
+                        onClick={() => setShowLogin(false)}
+                        style={{
+                            position: 'absolute', 
+                            top: '20px', 
+                            left: '20px', 
+                            zIndex: 1000, 
+                            background: 'none', 
+                            border: 'none', 
+                            color: '#fff', 
+                            cursor: 'pointer',
+                            fontSize: '1rem'
+                        }}
+                    >
+                        ← Voltar
+                    </button>
+                    <NewLoginForm onLoginSuccess={(session) => setSession(session)} />
+                </div>
+            );
+        }
+
+        // 2b. Caso contrário (default), mostra a Landing Page
         return (
-            <div className="App">
-                <NewLoginForm onLoginSuccess={(session) => setSession(session)} />
-            </div>
+            <LandingPage onEnterApp={() => setShowLogin(true)} />
         );
-    } else {
+    } 
+    
+    // 3. Se o utilizador ESTIVER autenticado (App Principal)
+    else {
         return (
             <div className="app-layout">
                 {/* Sidebar - Desktop Only */}
