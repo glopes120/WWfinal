@@ -155,6 +155,27 @@ async function getFinancialContext(userId) {
 // ROTAS
 // ------------------------------------------------------------------
 
+// [NOVO] ROTA DE STATUS / WEBSERVICE
+// Esta rota é pública e serve para a Landing Page (ou qualquer outro sistema)
+// verificar se o backend está operacional.
+app.get('/api/status', (req, res) => {
+    const uptime = process.uptime(); // Tempo que o servidor está ligado em segundos
+    
+    // Cálculo simples de horas e minutos de atividade
+    const hours = Math.floor(uptime / 3600);
+    const minutes = Math.floor((uptime % 3600) / 60);
+
+    // Retorna um JSON com dados do sistema
+    res.json({
+        status: 'online',
+        system: 'WiseWallet API v1.0',
+        uptime: `${hours}h ${minutes}m`,
+        serverTime: new Date().toLocaleString('pt-PT'),
+        // Mensagem dinâmica que aparecerá na Landing Page
+        messageOfTheDay: "A liberdade financeira começa com o primeiro registo."
+    });
+});
+
 // NOVO: Rota de Chat Geral com Contexto
 app.post('/gemini-chat', async (req, res) => {
     const { text, userId, history } = req.body;
