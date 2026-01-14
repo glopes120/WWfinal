@@ -7,12 +7,10 @@ export default function NewLoginForm({ onLoginSuccess }) {
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
-  const [isRecovery, setIsRecovery] = useState(false); // NOVO ESTADO
-  const [remember, setRemember] = useState(false);
+  const [isRecovery, setIsRecovery] = useState(false); 
+  // const [remember, setRemember] = useState(false); // Estado não utilizado atualmente, pode ser removido ou mantido para futuro
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
-
-
 
   // Lógica para enviar o email de recuperação
   const handleResetPassword = async (e) => {
@@ -21,6 +19,7 @@ export default function NewLoginForm({ onLoginSuccess }) {
     setMessage('');
 
     try {
+      // Invoca a Edge Function para envio de email
       const { error } = await supabase.functions.invoke('send-password-reset-email', {
         body: { email },
       });
@@ -41,7 +40,9 @@ export default function NewLoginForm({ onLoginSuccess }) {
 
     try {
         if (isRegistering) {
-            // Lógica de Registo (igual ao anterior)
+            // Lógica de Registo
+            
+            // 1. Cria o utilizador na autenticação do Supabase
             const { data: authData, error: authError } = await supabase.auth.signUp({
                 email: email,
                 password: password,
@@ -51,6 +52,7 @@ export default function NewLoginForm({ onLoginSuccess }) {
 
             if (!authData.user) throw new Error("Registration failed.");
 
+            // 2. Cria o perfil na tabela pública 'users' para persistência de dados
             const { error: profileError } = await supabase
                 .from('users')
                 .insert({
@@ -83,12 +85,18 @@ export default function NewLoginForm({ onLoginSuccess }) {
 
   const handleGoogleLogin = async () => {
     setLoading(true);
+    // CORREÇÃO APLICADA AQUI
+    // Antes estava fixo para 'http://localhost:5173', o que forçava o redirecionamento para o local
+    // mesmo em produção. Agora usamos 'window.location.origin' que deteta o URL atual do browser.
     const { error } = await supabase.auth.signInWithOAuth({ 
       provider: 'google',
       options: {
-        redirectTo: 'http://localhost:5173',
+        // window.location.origin retorna 'http://localhost:5173' em dev 
+        // E 'https://seu-site.netlify.app' em produção automaticamente.
+        redirectTo: window.location.origin,
       }
     });
+    
     if (error) {
         setMessage(error.message);
         setLoading(false);
