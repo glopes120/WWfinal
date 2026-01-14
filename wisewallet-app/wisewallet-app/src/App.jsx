@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { supabase } from './supabaseClient';
+import { AppProvider } from './contexts/AppContext'; // Importante para o tema
+
+// Componentes
 import NewLoginForm from './components/NewLoginForm';
-import Dashboard from './components/dashboard.jsx';
+import Dashboard from './components/dashboard.jsx'; // Nota: Verifica se o nome do ficheiro é minúscula ou maiúscula na pasta
 import Sidebar from './components/Sidebar';
 import BottomNav from './components/BottomNav';
 import UpdatePassword from './components/UpdatePassword';
 import Modal from './components/Modal';
 import AIAssistant from './components/AIAssistant';
-import LandingPage from './components/LandingPage'; // <-- IMPORTA A NOVA LANDING PAGE
-
-import { useAppContext } from './contexts/AppContext';
+import LandingPage from './components/LandingPage'; 
 
 function App() { 
     const [session, setSession] = useState(null);
@@ -18,7 +19,7 @@ function App() {
     const [isRecoveryMode, setIsRecoveryMode] = useState(false);
     const [isAIAssistantModalOpen, setIsAIAssistantModalOpen] = useState(false);
     
-    // NOVO ESTADO: Controla se mostramos o login ou a landing page quando não há sessão
+    // Controla se mostramos a Landing Page ou o Login quando não há sessão
     const [showLogin, setShowLogin] = useState(false);
 
     const refreshSession = async () => {
@@ -51,22 +52,21 @@ function App() {
 
     const openAIAssistant = () => setIsAIAssistantModalOpen(true);
 
-    // 1. Prioridade Máxima: Recuperação de Password
+    // 1. Prioridade: Recuperação de Password
     if (isRecoveryMode) {
         return (
-            <UpdatePassword
-                onPasswordUpdated={() => setIsRecoveryMode(false)}
-            />
+            <div className="App">
+                <UpdatePassword onPasswordUpdated={() => setIsRecoveryMode(false)} />
+            </div>
         );
     }
 
-    // 2. Se o utilizador NÃO estiver autenticado
+    // 2. Se NÃO houver sessão (Utilizador não logado)
     if (!session) {
-        // 2a. Se ele clicou em "Login" na Landing Page, mostra o formulário
+        // Se clicou em "Login" na Landing Page, mostra o formulário
         if (showLogin) {
             return (
-                <div className="App">
-                    {/* Botão simples para voltar à Landing Page */}
+                <div className="auth-wrapper" style={{position: 'relative', minHeight: '100vh', background: 'var(--bg-dark)'}}>
                     <button 
                         onClick={() => setShowLogin(false)}
                         style={{
@@ -74,11 +74,12 @@ function App() {
                             top: '20px', 
                             left: '20px', 
                             zIndex: 1000, 
-                            background: 'none', 
-                            border: 'none', 
+                            background: 'rgba(255,255,255,0.1)', 
+                            border: '1px solid rgba(255,255,255,0.2)', 
                             color: '#fff', 
-                            cursor: 'pointer',
-                            fontSize: '1rem'
+                            padding: '8px 16px',
+                            borderRadius: '8px',
+                            cursor: 'pointer'
                         }}
                     >
                         ← Voltar
@@ -88,17 +89,14 @@ function App() {
             );
         }
 
-        // 2b. Caso contrário (default), mostra a Landing Page
-        return (
-            <LandingPage onEnterApp={() => setShowLogin(true)} />
-        );
+        // Caso contrário, mostra a Landing Page
+        return <LandingPage onEnterApp={() => setShowLogin(true)} />;
     } 
     
-    // 3. Se o utilizador ESTIVER autenticado (App Principal)
-    else {
-        return (
+    // 3. App Principal (Logado)
+    return (
+        <AppProvider>
             <div className="app-layout">
-                {/* Sidebar - Desktop Only */}
                 <div className="sidebar-desktop">
                     <Sidebar
                         onSelectMenuItem={handleMenuSelect}
@@ -108,7 +106,6 @@ function App() {
                     />
                 </div>
                 
-                {/* Main Content */}
                 <main className="main-content">
                     <Dashboard
                         view={activeMenuItem}
@@ -119,7 +116,6 @@ function App() {
                     />
                 </main>
                 
-                {/* Bottom Navigation - Mobile/Tablet Only */}
                 <div className="bottom-nav-mobile">
                     <BottomNav
                         onSelectMenuItem={handleMenuSelect}
@@ -129,7 +125,6 @@ function App() {
                     />
                 </div>
                 
-                {/* AI Assistant Modal */}
                 <Modal
                     isOpen={isAIAssistantModalOpen}
                     onClose={() => setIsAIAssistantModalOpen(false)}
@@ -139,8 +134,8 @@ function App() {
                     <AIAssistant user={session.user} onClose={() => setIsAIAssistantModalOpen(false)} />
                 </Modal>
             </div>
-        );
-    }
+        </AppProvider>
+    );
 }
 
 export default App;
