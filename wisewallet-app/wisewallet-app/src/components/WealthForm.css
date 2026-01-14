@@ -1,0 +1,72 @@
+.wealth-form-container {
+  background-color: var(--n26-white);
+  padding: var(--n26-spacing-l);
+  border-radius: var(--n26-border-radius);
+  box-shadow: var(--n26-shadow-s);
+  margin-top: var(--n26-spacing-l);
+}
+
+.wealth-form-container h3 {
+  font-family: var(--n26-font-family-secondary);
+  font-size: 1.25rem;
+  margin-bottom: var(--n26-spacing-m);
+  color: var(--n26-black);
+}
+
+.wealth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--n26-spacing-m);
+}
+
+.wealth-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--n26-spacing-xs);
+}
+
+.wealth-form label {
+  font-size: 0.875rem;
+  color: var(--n26-dark-gray);
+  font-weight: 500;
+}
+
+.wealth-form input {
+    width: 100%;
+    padding: var(--n26-spacing-m);
+    font-size: 1rem;
+    border: var(--n26-border-width) solid var(--n26-border-color);
+    border-radius: var(--n26-border-radius);
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    color: var(--n26-dark-gray);
+}
+
+.wealth-form input:focus {
+    outline: none;
+    border-color: var(--n26-green);
+    box-shadow: 0 0 0 3px rgba(43, 105, 122, 0.2);
+}
+
+.wealth-form button {
+    background-color: var(--n26-green);
+    color: var(--n26-white);
+    width: 100%;
+    padding: var(--n26-spacing-m);
+    border: none;
+    border-radius: var(--n26-border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.wealth-form button:hover {
+    background-color: #218a82;
+}
+
+.wealth-form button:disabled {
+    background-color: var(--n26-light-gray);
+    cursor: not-allowed;
+    color: var(--n26-dark-gray);
+}

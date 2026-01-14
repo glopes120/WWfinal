@@ -1,0 +1,73 @@
+.budget-list-container {
+  background-color: var(--n26-white);
+  padding: var(--n26-spacing-l);
+  border-radius: var(--n26-border-radius);
+  box-shadow: var(--n26-shadow-s);
+  margin-top: var(--n26-spacing-l);
+}
+
+.budget-list-container h3 {
+  font-family: var(--n26-font-family-secondary);
+  font-size: 1.25rem;
+  margin-bottom: var(--n26-spacing-m);
+  color: var(--n26-black);
+}
+
+.budget-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.budget-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--n26-spacing-m) 0;
+  border-bottom: 1px solid var(--n26-light-gray);
+}
+
+.budget-item:last-child {
+  border-bottom: none;
+}
+
+.budget-item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.budget-item-category {
+  font-weight: 500;
+  color: var(--n26-black);
+}
+
+.budget-item-amount {
+  font-weight: 600;
+  color: var(--n26-black);
+}
+
+.budget-item-dates {
+  font-size: 0.875rem;
+  color: var(--n26-dark-gray);
+}
+
+.budget-item-actions button {
+  background-color: var(--n26-light-gray);
+  color: var(--n26-black);
+  padding: var(--n26-spacing-xs) var(--n26-spacing-s);
+  border: none;
+  border-radius: var(--n26-border-radius);
+  font-size: 0.875rem;
+  cursor: pointer;
+  margin-left: var(--n26-spacing-s);
+}
+
+.budget-item-actions .edit-button:hover {
+  background-color: var(--n26-blue);
+  color: var(--n26-white);
+}
+
+.budget-item-actions .delete-button:hover {
+  background-color: var(--n26-red);
+  color: var(--n26-white);
+}

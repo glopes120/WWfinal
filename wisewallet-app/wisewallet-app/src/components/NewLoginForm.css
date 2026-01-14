@@ -1,0 +1,262 @@
+/* NewLoginForm.css - Revolut Style Minimalist */
+
+.login-page-container {
+  min-height: 100vh;
+  display: flex;
+  background-color: var(--theme-bg, #000000);
+}
+
+/* Left - Login Form Section */
+.login-form-section {
+  width: 50%;
+  background-color: var(--theme-surface, #1C1C1E);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: var(--theme-text-primary, #ffffff);
+}
+
+.login-form-wrapper {
+  width: 100%;
+  max-width: 400px;
+}
+
+.brand-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.brand-logo-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--theme-accent-primary, #2563EB);
+  border-radius: 8px; /* Slightly rounded square */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo-icon span {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.brand-name {
+  color: var(--theme-text-primary, #fff);
+  font-weight: 700;
+  font-size: 1.5rem;
+  font-family: var(--ww-font-primary, sans-serif);
+}
+
+.welcome-text {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--theme-text-primary, #fff);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.sub-welcome-text {
+  color: var(--theme-text-secondary, #8E8E93);
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+.login-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.input-label {
+  color: var(--theme-text-secondary, #8E8E93);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  display: block;
+}
+
+.input-field {
+  width: 100%;
+  background-color: var(--theme-elevated, #2C2C2E);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 1rem;
+  color: var(--theme-text-primary, #fff);
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: var(--theme-accent-primary, #2563EB);
+  background-color: var(--theme-surface, #1C1C1E);
+}
+
+.password-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.forgot-password-link {
+  color: var(--theme-accent-primary, #2563EB);
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.submit-button {
+  width: 100%;
+  background-color: var(--theme-accent-primary, #2563EB);
+  color: #fff;
+  font-weight: 600;
+  padding: 1rem;
+  border-radius: 12px; /* Pill-ish but squarer */
+  transition: transform 0.1s, opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.submit-button:hover {
+  background-color: var(--theme-accent-primary-dark, #1D4ED8);
+}
+
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.or-divider {
+  text-align: center;
+  color: var(--theme-text-tertiary, #48484A);
+  font-size: 0.85rem;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.or-divider::before, .or-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: var(--theme-border, #2C2C2E);
+}
+.or-divider::before { left: 0; }
+.or-divider::after { right: 0; }
+
+.social-login-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: var(--theme-elevated, #2C2C2E);
+  color: var(--theme-text-primary, #fff);
+  padding: 1rem;
+  border-radius: 12px;
+  transition: background-color 0.15s ease-in-out;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.social-button:hover {
+  background-color: var(--theme-border, #3A3A3C);
+}
+
+.no-account-text {
+  text-align: center;
+  color: var(--theme-text-secondary, #8E8E93);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+.no-account-text .switch-mode-button {
+  color: var(--theme-accent-primary, #2563EB);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+  margin-left: 0.25rem;
+  font-weight: 600;
+}
+
+.no-account-text .switch-mode-button:hover {
+  text-decoration: underline;
+}
+
+/* Right - Features Section */
+.features-section {
+  width: 50%;
+  background: radial-gradient(circle at top right, #2563EB, #111827 60%); /* Deep Fintech Blue Gradient */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.features-content {
+  position: relative;
+  z-index: 10;
+  max-width: 450px;
+}
+
+.features-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.features-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .login-page-container {
+    flex-direction: column;
+  }
+  .login-form-section, .features-section {
+    width: 100%;
+  }
+  .features-section {
+    display: none; /* Hide features on mobile for cleaner login */
+  }
+  .login-form-section {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,56 @@
+
+.total-wealth-container {
+  background-color: var(--n26-white);
+  padding: var(--n26-spacing-l);
+  border-radius: var(--n26-border-radius);
+  box-shadow: var(--n26-shadow-s);
+  margin-bottom: var(--n26-spacing-l);
+}
+
+.total-wealth-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--n26-spacing-m);
+}
+
+.total-wealth-header h3 {
+  font-family: var(--n26-font-family-secondary);
+  font-size: 1.25rem;
+  color: var(--n26-black);
+  margin: 0;
+}
+
+.total-wealth-amount {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--n26-green);
+}
+
+.wealth-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--n26-spacing-m);
+}
+
+.wealth-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--n26-spacing-s);
+  border-bottom: 1px solid var(--n26-light-gray);
+}
+
+.wealth-item:last-child {
+  border-bottom: none;
+}
+
+.wealth-label {
+  font-weight: 500;
+  color: var(--n26-dark-gray);
+}
+
+.wealth-value {
+  color: var(--n26-black);
+  font-weight: 500;
+}

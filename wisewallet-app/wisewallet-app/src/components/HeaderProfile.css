@@ -1,0 +1,102 @@
+.header-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-email {
+  font-size: 0.9rem;
+  color: var(--n26-dark-gray);
+}
+
+.logout-btn {
+  background-color: var(--n26-red);
+  color: var(--n26-white);
+  border: none;
+  border-radius: var(--n26-border-radius);
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #c53030; /* Darker red on hover */
+}
+
+
+
+.profile-avatar {
+
+
+
+  width: 40px;
+
+
+
+  height: 40px;
+
+
+
+  border-radius: 50%;
+
+
+
+  object-fit: cover;
+
+
+
+  box-shadow: 0 0 0 2px var(--profile-border-color); /* Dynamic border color */
+
+
+
+}
+
+
+
+
+
+
+
+/* Light mode styles based on data-theme attribute */
+
+
+
+[data-theme="light"] .profile-avatar {
+
+
+
+  --profile-border-color: #007bff; /* Blue for light mode */
+
+
+
+  border: 2px solid #007bff; /* Explicitly set border for light mode */
+
+
+
+}
+
+
+
+
+
+
+
+/* Dark mode styles based on data-theme attribute */
+
+
+
+[data-theme="dark"] .profile-avatar {
+
+
+
+  --profile-border-color: #8a2be2; /* Purple for dark mode */
+
+
+
+  border: 2px solid #8a2be2; /* Explicitly set border for dark mode */
+
+
+
+}

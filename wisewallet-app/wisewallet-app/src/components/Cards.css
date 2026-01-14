@@ -1,0 +1,168 @@
+/* Cards.css */
+
+.cards-section {
+  margin-bottom: 2rem;
+}
+
+.cards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--theme-text-primary);
+  margin: 0;
+}
+
+.add-card-btn {
+  color: var(--theme-accent-primary);
+  background: rgba(37, 99, 235, 0.1);
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-card-btn:hover {
+  background: rgba(37, 99, 235, 0.2);
+}
+
+.cards-scroll-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem; /* Space for scrollbar or shadow */
+  padding-left: 0.5rem;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+}
+
+.cards-scroll-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.digital-card {
+  min-width: 280px;
+  height: 170px;
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.digital-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-type {
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-logo {
+  font-weight: 800;
+  font-style: italic;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.card-middle {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card-chip {
+  width: 36px;
+  height: 28px;
+  background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-chip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0,0,0,0.2);
+}
+
+.contactless-icon {
+  font-size: 1.2rem;
+  transform: rotate(90deg);
+  opacity: 0.7;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.card-number {
+  font-family: monospace;
+  font-size: 1rem;
+  opacity: 0.8;
+  letter-spacing: 0.1em;
+}
+
+.card-balance {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Placeholder Add Card */
+.add-card-placeholder {
+  background: var(--theme-surface);
+  border: 2px dashed var(--theme-border);
+  color: var(--theme-text-secondary);
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: none;
+}
+
+.add-card-placeholder:hover {
+  border-color: var(--theme-accent-primary);
+  color: var(--theme-accent-primary);
+  transform: translateY(-2px);
+}
+
+.add-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--theme-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}

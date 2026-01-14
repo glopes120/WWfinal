@@ -1,0 +1,51 @@
+.summary-container.total-wealth-box { /* Main container for the entire summary */
+  background-color: var(--n26-white); /* Example color, adjust as needed */
+  padding: var(--n26-spacing-l);
+  border-radius: var(--n26-border-radius);
+  box-shadow: var(--n26-shadow-s);
+  margin-bottom: var(--n26-spacing-l);
+}
+
+.total-wealth-header {
+  font-family: var(--n26-font-family-secondary);
+  font-size: 1.5rem; /* Larger for prominence */
+  margin-bottom: var(--n26-spacing-l); /* More space below header */
+  color: var(--n26-black);
+  text-align: center; /* Center the header */
+}
+
+.summary-cards-grid { /* New grid for the individual cards */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--n26-spacing-m);
+}
+
+.summary-card {
+    background-color: var(--n26-white);
+    padding: var(--n26-spacing-m);
+    border-radius: var(--n26-border-radius);
+    box-shadow: var(--n26-shadow-s);
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-title {
+    font-size: 0.875rem;
+    color: var(--n26-dark-gray);
+    margin-bottom: var(--n26-spacing-xs);
+    font-weight: 400;
+}
+
+.summary-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--n26-black);
+}
+
+.summary-value.positive {
+    color: var(--n26-green);
+}
+
+.summary-value.negative {
+    color: var(--n26-red);
+}

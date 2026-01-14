@@ -1,0 +1,120 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeInOverlay 0.2s ease-out; /* Renamed fadeIn to fadeInOverlay to avoid confusion */
+}
+
+.modal-content {
+  background-color: var(--theme-surface, #fff); /* Use theme variable */
+  padding: var(--ww-spacing-l, 1.5rem);
+  border-radius: var(--ww-border-radius-xl, 16px);
+  box-shadow: var(--ww-shadow-xl, 0 10px 25px rgba(0,0,0,0.1));
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  animation: zoomInSoft 0.5s ease-out forwards; /* Apply new zoomInSoft animation */
+  color: var(--theme-text-primary);
+}
+
+/* Chat Modal Specifics - Full Bleed */
+.chat-modal-wrapper {
+  padding: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  max-width: 600px !important;
+  height: 85vh !important;
+  max-height: 900px !important;
+  width: 95% !important;
+}
+
+.chat-modal-wrapper .modal-body {
+  height: 100%;
+  overflow: hidden; /* Prevent double scroll */
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--theme-border, #eee);
+  padding-bottom: var(--ww-spacing-m, 1rem);
+  margin-bottom: var(--ww-spacing-m, 1rem);
+}
+
+.modal-title {
+  margin: 0;
+  font-size: var(--ww-font-size-l, 1.25rem);
+  font-weight: 600;
+}
+
+.modal-close-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--theme-text-secondary, #666);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close-button:hover {
+  color: var(--theme-text-primary, #111);
+}
+
+.modal-body {
+  overflow-y: auto;
+}
+
+@keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } } /* Renamed from fadeIn */
+@keyframes zoomInSoft {
+  from {
+    transform: scale(0.95); /* Start slightly smaller */
+    opacity: 0;
+  }
+  to {
+    transform: scale(1); /* Zoom to original size */
+    opacity: 1;
+  }
+}
+
+/* Estilos para a lista de detalhes dentro do modal */
+.details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.details-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--theme-border, #eee);
+}
+
+.details-list-item:last-child {
+  border-bottom: none;
+}
+
+.details-amount {
+  font-weight: 500;
+}
+
+.details-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--ww-spacing-m, 1rem);
+  padding-top: var(--ww-spacing-m, 1rem);
+  border-top: 2px solid var(--theme-text-primary, #111);
+}

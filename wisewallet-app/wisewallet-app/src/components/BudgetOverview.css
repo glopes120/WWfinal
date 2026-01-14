@@ -1,0 +1,47 @@
+.budget-overview-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.budget-overview-container h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.budget-summary p {
+  margin: 5px 0;
+  font-size: 1em;
+}
+
+.budget-summary .positive {
+  color: var(--n26-green);
+  font-weight: bold;
+}
+
+.budget-summary .negative {
+  color: var(--n26-red);
+  font-weight: bold;
+}
+
+.upcoming-bills-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.upcoming-bill-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9em;
+}
+
+.upcoming-bill-item:last-child {
+  border-bottom: none;
+}

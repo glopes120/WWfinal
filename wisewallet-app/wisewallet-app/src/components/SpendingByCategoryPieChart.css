@@ -1,0 +1,18 @@
+.spending-by-category-pie-chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--ww-bg-surface);
+    border-radius: var(--ww-border-radius);
+    box-shadow: var(--ww-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spending-by-category-pie-chart-container p {
+    color: var(--ww-text-secondary);
+}

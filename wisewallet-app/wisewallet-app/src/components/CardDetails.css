@@ -1,0 +1,258 @@
+/* CardDetails.css - Revolut Style */
+
+.card-details-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--theme-surface);
+  color: var(--theme-text-primary);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.cd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  background: var(--theme-surface);
+  z-index: 10;
+}
+
+.cd-back-btn {
+  background: none;
+  border: none;
+  color: var(--theme-text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.cd-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cd-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.cd-card-visual {
+  width: 260px;
+  height: 160px;
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.cd-card-visual.frozen {
+  filter: grayscale(100%);
+  opacity: 0.8;
+}
+
+.frozen-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.4);
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  backdrop-filter: blur(2px);
+}
+
+.cd-balance-label {
+  color: var(--theme-text-secondary);
+  font-size: 0.9rem;
+}
+
+.cd-balance-amount {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Quick Actions */
+.cd-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.cd-action-btn {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--theme-text-primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.cd-action-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--theme-elevated);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: background 0.2s;
+}
+
+.cd-action-icon.active-freeze {
+  background: var(--theme-accent-primary);
+  color: white;
+}
+
+.cd-action-btn:hover .cd-action-icon {
+  background: var(--theme-border);
+}
+
+/* Settings List */
+.cd-settings-list {
+  padding: 1.5rem;
+  background: var(--theme-bg); /* Slight contrast background for list area */
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  flex-grow: 1;
+}
+
+.cd-section-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--theme-text-secondary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.cd-setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--theme-border);
+}
+
+.cd-setting-item:last-child {
+  border-bottom: none;
+}
+
+.cd-setting-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cd-setting-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--theme-surface);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.cd-setting-name {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.cd-setting-desc {
+  margin: 0;
+  color: var(--theme-text-secondary);
+  font-size: 0.8rem;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.toggle-switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--theme-elevated);
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider {
+  background-color: var(--theme-accent-primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.cd-footer {
+    padding: 2rem;
+    background: var(--theme-bg);
+    display: flex;
+    justify-content: center;
+}
+
+.cd-terminate-btn {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}

@@ -1,0 +1,137 @@
+/* Categories.css */
+
+/* Reusing variables from Budget.css / Global where possible, or defining fallbacks */
+.categories-container {
+    background-color: var(--theme-surface); /* Use theme surface for container */
+    padding: 1.5rem;
+    color: var(--ww-text-primary);
+    border-radius: 0.75rem;
+    box-shadow: var(--ww-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+    border: 1px solid var(--theme-border); /* Use theme border */
+}
+
+.categories-container h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--ww-text-primary);
+    border-bottom: 2px solid var(--theme-border); /* Use theme border */
+    padding-bottom: 1rem;
+}
+
+.add-category-form {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    background-color: var(--theme-elevated); /* Use theme elevated for form background */
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--theme-border); /* Use theme border */
+}
+
+.add-category-form input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    background-color: var(--theme-bg); /* Use theme background for input for better contrast */
+    border: 1px solid var(--theme-border); /* Use theme border */
+    border-radius: 0.5rem;
+    color: var(--ww-text-primary);
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.add-category-form input:focus {
+    border-color: var(--ww-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* Matching the "Add" button style from Budget/Transaction forms */
+.add-category-form button {
+    background: var(--ww-gradient-primary, linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%));
+    color: white;
+    padding: 0 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    box-shadow: var(--ww-shadow-primary, 0 4px 6px -1px rgba(99, 102, 241, 0.4));
+}
+
+.add-category-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--ww-shadow-l, 0 10px 15px -3px rgba(99, 102, 241, 0.5));
+}
+
+.categories-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 500px;
+    overflow-y: auto;
+    display: grid;
+    gap: 0.75rem; /* Space between items */
+}
+
+/* Scrollbar for list */
+.categories-list::-webkit-scrollbar {
+    width: 6px;
+}
+.categories-list::-webkit-scrollbar-thumb {
+    background-color: var(--theme-border); /* Use theme border for scrollbar */
+    border-radius: 4px;
+}
+
+/* Styling each category item as a distinct "box" for contrast */
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--theme-elevated); /* Use theme elevated for item background */
+    border: 1px solid var(--theme-border); /* Use theme border */
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+}
+
+.category-item:hover {
+    background-color: var(--theme-elevated); /* Keep consistent hover or slightly darker */
+    border-color: var(--theme-accent-primary); /* Highlight border on hover */
+    transform: translateX(4px);
+}
+
+.category-item span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ww-text-primary);
+}
+
+.delete-btn {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.delete-btn:hover:not(:disabled) {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.1);
+}
+
+.delete-btn:disabled {
+    background: transparent;
+    color: var(--ww-text-tertiary);
+    border-color: transparent;
+    cursor: not-allowed;
+    opacity: 0.6;
+}

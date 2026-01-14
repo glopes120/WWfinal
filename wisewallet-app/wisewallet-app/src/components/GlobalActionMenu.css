@@ -1,0 +1,136 @@
+.global-action-wrapper {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    pointer-events: none; /* Let clicks pass through wrapper to overlay or buttons */
+}
+
+/* Clickable areas need pointer-events auto */
+.fab-main, .action-item {
+    pointer-events: auto;
+}
+
+.action-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    z-index: 999;
+    pointer-events: auto;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.global-action-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    z-index: 1001;
+}
+
+/* FAB Main Button */
+.fab-main {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--theme-accent-primary); /* Uses theme variable */
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s;
+}
+
+.fab-main:hover {
+    transform: scale(1.1);
+}
+
+.fab-main.open {
+    transform: rotate(135deg);
+    background: #ef4444; /* Red for close */
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.fab-icon {
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 300;
+}
+
+/* Menu Items */
+.action-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none; /* Disabled when closed */
+}
+
+.action-menu.open .action-item {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.action-label {
+    background: var(--theme-surface);
+    color: var(--theme-text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    white-space: nowrap;
+}
+
+.action-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-size: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.action-item:hover .action-circle {
+    transform: scale(1.1);
+}
+
+.transaction-circle {
+    background: #10b981; /* Emerald */
+    color: white;
+}
+
+.account-circle {
+    background: #8b5cf6; /* Violet */
+    color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

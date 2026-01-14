@@ -1,0 +1,26 @@
+/* RecentExpenses.css */
+
+/* Removed styles for .recent-expenses-container, .recent-expenses-list, etc. */
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--ww-spacing-s) 0; /* Adjusted padding to be more compact */
+  border-bottom: 1px solid var(--ww-border-primary);
+  font-size: var(--ww-font-size-base); /* Ensure consistent font size */
+  color: var(--ww-text-secondary); /* Default text color */
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.transaction-item span:first-child {
+  /* Style for description */
+}
+
+.transaction-item span:last-child {
+  font-weight: 600;
+  color: var(--ww-text-primary); /* Amount should be more prominent */
+}

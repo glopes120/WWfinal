@@ -1,0 +1,63 @@
+/* Notification.css */
+
+.notification-banner {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  z-index: var(--ww-z-tooltip);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-out 4.5s forwards;
+}
+
+.notification-banner.success {
+  background: var(--ww-gradient-success);
+  box-shadow: var(--ww-shadow-success);
+}
+
+.notification-banner.error {
+  background: var(--ww-gradient-accent);
+  box-shadow: var(--ww-shadow-accent);
+}
+
+.notification-banner .icon {
+  font-size: 24px;
+}
+
+.notification-banner .content h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 2px 0;
+  color: white;
+}
+
+.notification-banner .content p {
+  font-size: 12px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}

@@ -1,0 +1,124 @@
+.spending-power-card {
+    background-color: var(--theme-surface);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    color: var(--theme-text-primary);
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.spending-power-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.sp-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.sp-icon-wrapper {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+}
+
+.sp-icon {
+    font-size: 1.5rem;
+}
+
+.sp-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.sp-subtitle {
+    font-size: 0.875rem;
+    color: var(--theme-text-secondary);
+    margin: 0;
+}
+
+.sp-score {
+    margin-left: auto;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.sp-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    flex: 1;
+}
+
+.sp-main-value {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sp-label {
+    font-size: 0.875rem;
+    color: var(--theme-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.sp-amount {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.sp-progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sp-progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--theme-text-secondary);
+    font-weight: 500;
+}
+
+.sp-progress-bar-bg {
+    width: 100%;
+    height: 10px;
+    background-color: var(--theme-bg); /* Darker background */
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.sp-progress-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 1s ease-out;
+}
+
+.sp-insight {
+    font-size: 0.9rem;
+    color: var(--theme-text-secondary);
+    background-color: var(--theme-bg);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border-left: 3px solid var(--theme-text-tertiary);
+    line-height: 1.5;
+    margin-top: auto; /* Push to bottom */
+}

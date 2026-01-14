@@ -1,0 +1,324 @@
+/* Revolut-Style Base - Shared Styles for All Components */
+
+.revolut-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #000000, #0a0a0a);
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: clamp(0.75rem, 1.25vw + 0.5rem, 1.25rem);
+  padding-bottom: clamp(3rem, 5vw + 1rem, 5rem);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.revolut-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.revolut-back-btn {
+  width: clamp(2rem, 2.5vw + 1rem, 2.5rem);
+  height: clamp(2rem, 2.5vw + 1rem, 2.5rem);
+  min-width: clamp(2rem, 2.5vw + 1rem, 2.5rem);
+  min-height: clamp(2rem, 2.5vw + 1rem, 2.5rem);
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: clamp(1rem, 1.25vw + 0.5rem, 1.25rem);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.revolut-back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.revolut-back-btn:active {
+  transform: scale(0.95);
+}
+
+.revolut-title {
+  font-size: clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.revolut-subtitle {
+  font-size: clamp(0.75rem, 0.875vw + 0.5rem, 0.875rem);
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+}
+
+.revolut-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);
+  padding: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);
+  margin-bottom: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);
+  backdrop-filter: blur(20px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.revolut-card-sm {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.revolut-card-sm:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.revolut-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.revolut-value {
+  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.revolut-value-lg {
+  font-size: clamp(2rem, 3vw + 0.5rem, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.revolut-change-positive {
+  color: #00D856;
+  font-weight: 600;
+}
+
+.revolut-change-negative {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.revolut-btn {
+  padding: clamp(0.625rem, 0.75vw + 0.5rem, 0.75rem) clamp(1rem, 1.25vw + 0.5rem, 1.25rem);
+  background: #0075FF;
+  color: white;
+  border: none;
+  border-radius: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);
+  font-weight: 600;
+  font-size: clamp(0.75rem, 0.875vw + 0.5rem, 0.875rem);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.revolut-btn:hover {
+  background: #0060cc;
+  transform: translateY(-1px);
+}
+
+.revolut-btn-secondary {
+  padding: 0.75rem 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.revolut-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.revolut-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.revolut-list-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.revolut-icon-circle {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.revolut-item-title {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  margin-bottom: 0.125rem;
+}
+
+.revolut-item-subtitle {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.revolut-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem;
+  border-radius: 1rem;
+}
+
+.revolut-tab {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.revolut-tab.active {
+  background: rgba(0, 117, 255, 0.2);
+  color: #0075FF;
+}
+
+.revolut-tab:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.revolut-form-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  color: white;
+  font-size: 0.9375rem;
+  outline: none;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.revolut-form-input:focus {
+  border-color: #0075FF;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.revolut-form-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.revolut-empty-state {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Modal Styles */
+.revolut-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.revolut-modal-content {
+  background: #1a1a1a;
+  border-radius: 1.5rem 1.5rem 0 0;
+  width: 100%;
+  max-width: 500px;
+  padding: 1.5rem;
+  animation: slideUp 0.3s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.revolut-modal-handle {
+  width: 2.5rem;
+  height: 0.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  margin: 0 auto 1.5rem;
+}
+
+.revolut-modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+/* Scrollbar */
+.revolut-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.revolut-modal-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.revolut-modal-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.revolut-modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

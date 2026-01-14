@@ -1,0 +1,267 @@
+/* ============================================
+   WIDTHS - BUDGET MANAGEMENT
+   ============================================ */
+
+/* CONTAINER PRINCIPAL */
+.budget-container {
+  width: 100%;
+  max-width: none; /* Full width */
+  padding: 1.25rem; /* 20px */
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.budget-header {
+  width: 100%;
+}
+
+.settings-button {
+  width: auto;
+  min-width: 2.5rem; /* 40px */
+}
+
+.add-category-button {
+  width: auto;
+  min-width: 150px;
+}
+
+/* ============================================
+   GRID LAYOUTS
+   ============================================ */
+
+/* Summary & Pie Chart Grid */
+.grid-2-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 50% cada */
+  gap: 1.25rem; /* 20px */
+}
+
+/* Monthly Summary Card */
+.summary-section {
+  width: 100%; /* 50% do grid */
+  min-width: 300px;
+}
+
+/* Pie Chart Card */
+.pie-chart-section {
+  width: 100%; /* 50% do grid */
+  min-width: 300px;
+}
+
+/* Pie Chart itself */
+.pie-chart-container {
+  width: 180px;
+  height: 180px;
+}
+
+/* ============================================
+   BUDGET CATEGORIES
+   ============================================ */
+
+.categories-section {
+  width: 100%; /* Full width */
+}
+
+.category-progress-bar {
+  width: 100%; /* Takes remaining space in flex */
+  height: 0.5rem; /* 8px */
+}
+
+.category-percentage {
+  width: 3rem; /* 48px - fixed width for alignment */
+  min-width: 3rem;
+}
+
+/* ============================================
+   TRANSACTIONS & INSIGHTS GRID
+   ============================================ */
+
+.grid-2-bottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 50% cada */
+  gap: 1.25rem; /* 20px */
+}
+
+/* Recent Transactions Card */
+.transactions-section {
+  width: 100%; /* 50% do grid */
+  min-width: 300px;
+}
+
+/* Transaction Icon */
+.transaction-icon {
+  width: 2.5rem; /* 40px */
+  height: 2.5rem; /* 40px */
+  flex-shrink: 0; /* Não encolhe */
+}
+
+/* Budget Insights Card */
+.insights-section {
+  width: 100%; /* 50% do grid */
+  min-width: 300px;
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
+
+.modal-backdrop {
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 28rem; /* 448px */
+}
+
+.form-input {
+  width: 100%; /* Full width do modal */
+}
+
+/* Modal Buttons */
+.modal-button-cancel,
+.modal-button-submit {
+  flex: 1; /* Divide igualmente o espaço */
+  min-width: 100px;
+}
+
+/* ============================================
+   PROGRESS BARS
+   ============================================ */
+
+/* Budget Progress (Monthly Summary) */
+.budget-progress-bar {
+  width: 100%;
+  height: 0.75rem; /* 12px */
+}
+
+/* Category Progress Bars */
+.category-progress-bar-wrapper {
+  width: calc(100% - 4rem); /* Full minus percentage width */
+  height: 0.5rem; /* 8px */
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.button-primary {
+  width: auto;
+  min-width: 120px;
+  padding: 0.625rem 1rem; /* 10px 16px */
+}
+
+.button-full-width {
+  width: 100%;
+}
+
+.add-category-placeholder {
+  width: 100%;
+}
+
+.view-all-button {
+  width: 100%;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Desktop Large (1440px+) */
+@media (min-width: 1440px) {
+  .budget-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (max-width: 1439px) {
+  .budget-container {
+    max-width: 1200px;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) {
+  .grid-2-summary,
+  .grid-2-bottom {
+    grid-template-columns: 1fr; /* Stacks vertically */
+  }
+  
+  .summary-section,
+  .pie-chart-section,
+  .transactions-section,
+  .insights-section {
+    width: 100%;
+  }
+}
+
+/* Mobile (até 767px) */
+@media (max-width: 767px) {
+  .budget-container {
+    padding: 0.75rem; /* 12px */
+  }
+  
+  .modal-content {
+    max-width: calc(100vw - 2rem); /* Full width minus padding */
+    margin: 1rem;
+  }
+  
+  .pie-chart-container {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* Mobile Small (até 480px) */
+@media (max-width: 480px) {
+  .add-category-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .settings-button {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   SPECIFIC ELEMENT WIDTHS
+   ============================================ */
+
+/* Dots/Indicators */
+.category-dot {
+  width: 0.75rem; /* 12px */
+  height: 0.75rem; /* 12px */
+}
+
+.pie-legend-dot {
+  width: 0.75rem; /* 12px */
+  height: 0.75rem; /* 12px */
+}
+
+/* Icons */
+.quick-stat-icon {
+  width: 2.5rem; /* 40px */
+  height: 2.5rem; /* 40px */
+}
+
+.account-icon {
+  width: 2.5rem; /* 40px */
+  height: 2.5rem; /* 40px */
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}

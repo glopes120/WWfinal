@@ -1,0 +1,137 @@
+.transaction-form-container {
+    /* The container itself doesn't need a background when in a modal */
+    padding-top: 0;
+}
+
+.form-title {
+    font-size: var(--ww-font-size-xl);
+    font-weight: 600;
+    color: var(--ww-text-primary);
+    margin-bottom: var(--ww-spacing-m);
+    text-align: center;
+}
+
+.type-toggle {
+    display: flex;
+    justify-content: center;
+    background-color: var(--ww-bg-elevated);
+    border-radius: var(--ww-border-radius-full);
+    margin-bottom: var(--ww-spacing-l);
+    padding: var(--ww-spacing-xs);
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: var(--ww-spacing-s) var(--ww-spacing-m);
+    border-radius: var(--ww-border-radius-full);
+    font-weight: 600;
+    color: var(--ww-text-secondary);
+    transition: all var(--ww-transition-base);
+}
+
+.toggle-btn.active {
+    background-color: var(--ww-primary-light);
+    color: var(--ww-primary-dark);
+    box-shadow: var(--ww-shadow-s);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--ww-spacing-m);
+}
+
+@media (min-width: 768px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Make description span full width */
+    .description-group {
+        grid-column: 1 / -1;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: var(--ww-font-size-sm);
+    font-weight: 500;
+    color: var(--ww-text-secondary);
+    margin-bottom: var(--ww-spacing-xs);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: var(--ww-spacing-s) var(--ww-spacing-m);
+    /* Updated styles for better contrast and visibility */
+    border: 1px solid var(--theme-elevated); /* Visible border */
+    border-radius: var(--ww-border-radius);
+    font-size: var(--ww-font-size-base);
+    color: var(--ww-text-primary);
+    background: var(--theme-bg); /* Darker background for contrast */
+    transition: all var(--ww-transition-base);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--ww-primary);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+/* Ensure select options are visible */
+.form-group select option {
+    background-color: var(--theme-bg); /* Force background for options */
+    color: var(--ww-text-primary); /* Force text color for options */
+}
+/* Style for placeholder text in inputs */
+.form-group input::placeholder {
+    color: var(--ww-text-tertiary); /* Ensure placeholder is readable */
+}
+
+.form-actions {
+    grid-column: 1 / -1; /* Make it span full width in grid */
+    display: flex;
+    gap: var(--ww-spacing-m);
+    margin-top: var(--ww-spacing-m);
+}
+
+.cancel-btn, .submit-btn {
+    flex: 1;
+    padding: var(--ww-spacing-s) var(--ww-spacing-m);
+    border-radius: var(--ww-border-radius);
+    font-weight: 600;
+    font-size: var(--ww-font-size-base);
+    transition: all var(--ww-transition-base);
+}
+
+.cancel-btn {
+    background-color: var(--ww-bg-elevated);
+    color: var(--ww-text-primary);
+}
+
+.cancel-btn:hover {
+    background-color: var(--ww-border-secondary);
+}
+
+.submit-btn {
+    background: var(--ww-gradient-primary);
+    color: white;
+    box-shadow: var(--ww-shadow-primary);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--ww-shadow-l);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

@@ -1,0 +1,58 @@
+.completed-goals-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ww-spacing-m);
+}
+
+.goal-card {
+    display: flex;
+    align-items: center;
+    padding: var(--ww-spacing-m);
+    border: var(--ww-border-width) solid var(--ww-border-primary);
+    border-radius: var(--ww-border-radius);
+    background-color: var(--ww-bg-elevated); /* Use a slightly different background */
+    transition: all var(--ww-transition-base);
+}
+
+.goal-card:hover {
+    box-shadow: var(--ww-shadow-l);
+    transform: translateY(-2px);
+    border-color: var(--ww-primary-light);
+}
+
+.goal-icon {
+    font-size: var(--ww-font-size-2xl);
+    margin-right: var(--ww-spacing-m);
+}
+
+.goal-details {
+    flex-grow: 1;
+}
+
+.goal-name {
+    display: block;
+    font-weight: 600;
+    color: var(--ww-text-primary);
+    font-size: var(--ww-font-size-base);
+}
+
+.goal-amount-info {
+    font-size: var(--ww-font-size-sm);
+    color: var(--ww-text-secondary);
+    margin-top: var(--ww-spacing-xs);
+}
+
+.goal-amount-info strong {
+    color: var(--ww-accent-positive);
+    font-weight: 700;
+}
+
+.goal-completion-info {
+    text-align: right;
+}
+
+.goal-completion-date {
+    display: block;
+    font-size: var(--ww-font-size-sm);
+    color: var(--ww-text-secondary);
+}

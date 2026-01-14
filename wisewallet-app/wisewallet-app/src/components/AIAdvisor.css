@@ -1,0 +1,460 @@
+/* AIAdvisor.css - Modern Dark UI */
+
+.ai-advisor-main-container {
+  padding: 2rem;
+  color: var(--theme-text-primary);
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Header */
+.ai-advisor-header {
+  margin-bottom: 2.5rem;
+}
+
+.ai-advisor-header-title-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.ai-advisor-header-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--theme-text-primary);
+  background: linear-gradient(90deg, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ai-advisor-header-subtitle {
+  color: var(--theme-text-secondary);
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.ai-advisor-header-icon {
+  font-size: 2rem;
+  background: var(--theme-elevated);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Health Score Section */
+.financial-health-score-container {
+  background: var(--theme-surface);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--ww-shadow-s);
+  border: 1px solid var(--theme-border);
+}
+
+.financial-health-score-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--theme-text-primary);
+}
+
+.financial-health-score-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.health-score-circle {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.health-score-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.health-score-bg {
+  stroke: var(--theme-elevated);
+  stroke-width: 8;
+  fill: none;
+}
+
+.health-score-progress {
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1s ease-out;
+  fill: none;
+}
+
+.health-score-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.health-score-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--theme-text-primary);
+}
+
+.health-score-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.health-score-label {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.health-score-description {
+  color: var(--theme-text-secondary);
+  font-size: 0.95rem;
+  max-width: 400px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.health-score-progress-bar {
+  height: 6px;
+  background: var(--theme-elevated);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.health-score-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease-out;
+}
+
+/* Dynamic Colors */
+.color-excellent { color: #10b981; }
+.bg-excellent { background-color: #10b981; }
+.stroke-excellent { stroke: #10b981; }
+
+.color-good { color: #3b82f6; }
+.bg-good { background-color: #3b82f6; }
+.stroke-good { stroke: #3b82f6; }
+
+.color-fair { color: #eab308; }
+.bg-fair { background-color: #eab308; }
+.stroke-fair { stroke: #eab308; }
+
+.color-poor { color: #ef4444; }
+.bg-poor { background-color: #ef4444; }
+.stroke-poor { stroke: #ef4444; }
+
+
+/* --- NEW UI: AI Analysis Box (Glassmorphism) --- */
+.ai-analysis-box {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+    padding: 1.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-analysis-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+}
+
+.ai-analysis-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.ai-analysis-icon-wrapper {
+    background: rgba(99, 102, 241, 0.15);
+    padding: 0.6rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ai-analysis-icon {
+    font-size: 1.4rem;
+}
+
+.ai-analysis-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin: 0;
+}
+
+.ai-analysis-text {
+    color: #cbd5e1;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.ai-analysis-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    background: var(--theme-surface);
+    border-radius: 16px;
+    border: 1px dashed var(--theme-border);
+}
+
+.ai-analysis-loading p {
+    font-weight: 500;
+    color: var(--theme-text-primary);
+}
+
+.ai-analysis-loading-sub {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 0.5rem;
+    font-weight: 400 !important;
+}
+
+
+/* --- NEW UI: Stats Grid --- */
+.ai-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.ai-stat-card {
+    background: var(--theme-surface);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--theme-border);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ai-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-color: rgba(255,255,255,0.1);
+}
+
+.ai-stat-label {
+    color: var(--theme-text-secondary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.ai-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--theme-text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.ai-stat-sub {
+    font-size: 0.8rem;
+    color: var(--theme-text-tertiary);
+}
+
+
+/* Recommendations */
+.strengths-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--theme-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.recommendation-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.recommendation-card {
+  background: var(--theme-surface);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--theme-border);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.recommendation-card:hover {
+    transform: scale(1.01);
+}
+
+/* Subtle gradient overlays for recommendation cards */
+.recommendation-card.rec-excellent { background: linear-gradient(to right, rgba(16, 185, 129, 0.08), transparent); border-left: 4px solid #10b981; }
+.recommendation-card.rec-good { background: linear-gradient(to right, rgba(59, 130, 246, 0.08), transparent); border-left: 4px solid #3b82f6; }
+.recommendation-card.rec-fair { background: linear-gradient(to right, rgba(234, 179, 8, 0.08), transparent); border-left: 4px solid #eab308; }
+.recommendation-card.rec-poor { background: linear-gradient(to right, rgba(239, 68, 68, 0.08), transparent); border-left: 4px solid #ef4444; }
+
+
+.recommendation-card-content-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.recommendation-card-icon {
+  font-size: 1.5rem;
+  background: var(--theme-elevated);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recommendation-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--theme-text-primary);
+}
+
+.recommendation-card-impact {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+}
+
+.recommendation-card-description {
+  color: var(--theme-text-secondary);
+  margin-left: 3.75rem; 
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Projections */
+.projections-container {
+  background: var(--theme-surface);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-top: 2.5rem;
+  border: 1px solid var(--theme-border);
+}
+
+.projections-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.projections-subtitle {
+  color: var(--theme-text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.projections-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.projection-item {
+  background: var(--theme-elevated);
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.projection-item:hover {
+    border-color: var(--theme-border);
+}
+
+.projection-label {
+  font-size: 0.85rem;
+  color: var(--theme-text-secondary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.projection-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--theme-accent-primary);
+  margin-bottom: 0.25rem;
+}
+
+.projection-subtitle-text {
+  font-size: 0.75rem;
+  color: var(--theme-text-tertiary);
+}
+
+/* Chat CTA */
+.chat-cta-button-container {
+  margin-top: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.chat-cta-button {
+  background: linear-gradient(135deg, var(--theme-accent-primary), #4f46e5);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.chat-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.6);
+}
+
+@media (max-width: 768px) {
+  .financial-health-score-content { flex-direction: column; text-align: center; }
+  .projections-grid { grid-template-columns: 1fr; }
+  .recommendation-card-content-header { align-items: flex-start; }
+  .recommendation-card-description { margin-left: 0; margin-top: 0.5rem; }
+  .health-score-info { align-items: center; }
+  .recommendation-card-description { margin-left: 0; }
+  .ai-advisor-main-container { padding: 1rem; }
+}

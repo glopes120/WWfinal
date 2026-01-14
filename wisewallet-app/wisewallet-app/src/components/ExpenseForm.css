@@ -1,0 +1,92 @@
+.expense-form-container {
+    background-color: var(--n26-white);
+    padding: var(--n26-spacing-l);
+    border-radius: var(--n26-border-radius);
+    box-shadow: var(--n26-shadow-s);
+    margin-top: var(--n26-spacing-l); /* Add some top margin for separation */
+}
+
+.expense-form-container h3 {
+    font-family: var(--n26-font-family-secondary); /* Use Poppins for headings */
+    font-size: 1.25rem;
+    margin-bottom: var(--n26-spacing-m);
+    color: var(--n26-black);
+}
+
+.transaction-type-selector {
+    display: flex;
+    margin-bottom: var(--n26-spacing-m);
+    border-radius: var(--n26-border-radius);
+    overflow: hidden;
+    border: 1px solid var(--n26-border-color);
+}
+
+.transaction-type-selector button {
+    flex: 1;
+    padding: var(--n26-spacing-m);
+    font-size: 1rem;
+    border: none;
+    background-color: var(--n26-white);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: var(--n26-dark-gray);
+}
+
+.transaction-type-selector button.active {
+    background-color: var(--n26-green);
+    color: var(--n26-white);
+    font-weight: 600;
+}
+
+.transaction-type-selector button:not(.active):hover {
+    background-color: var(--n26-light-gray);
+}
+
+
+.expense-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--n26-spacing-m);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: var(--n26-spacing-m);
+    font-size: 1rem;
+    border: var(--n26-border-width) solid var(--n26-border-color);
+    border-radius: var(--n26-border-radius);
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    color: var(--n26-dark-gray); /* Ensure text color is consistent */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--n26-green); /* Use N26 green */
+    box-shadow: 0 0 0 3px rgba(43, 105, 122, 0.2); /* Shadow with N26 green */
+}
+
+.expense-form button {
+    background-color: var(--n26-green); /* Use N26 green */
+    color: var(--n26-white);
+    width: 100%;
+    padding: var(--n26-spacing-m);
+    border: none;
+    border-radius: var(--n26-border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.expense-form button:hover {
+    background-color: #218a82; /* Darker green on hover */
+}
+
+.expense-form button:disabled {
+    background-color: var(--n26-light-gray);
+    cursor: not-allowed;
+    color: var(--n26-dark-gray); /* Ensure text color is consistent */
+}

@@ -1,0 +1,215 @@
+/* ==============================================
+   LoginForm.css (Versão Melhorada)
+   ============================================== */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: var(--n26-spacing-m); /* Adiciona padding para ecrãs pequenos */
+    background-color: var(--n26-light-gray);
+    box-sizing: border-box;
+}
+
+.login-box {
+    background-color: var(--n26-white);
+    padding: var(--n26-spacing-xl);
+    border-radius: var(--n26-border-radius);
+    box-shadow: var(--n26-shadow-m);
+    width: 90%; /* Garante que não toca nas bordas em ecrãs pequenos */
+    max-width: 400px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.logo-login {
+    width: 60px;
+    margin-bottom: var(--n26-spacing-l);
+}
+
+.login-box h2 {
+    font-family: var(--n26-font-family-secondary);
+    font-size: 1.5rem; /* 24px */
+    font-weight: 600; /* Um pouco mais de peso */
+    margin-bottom: var(--n26-spacing-l);
+    color: var(--n26-black);
+}
+
+.login-form .input-group {
+    margin-bottom: var(--n26-spacing-m);
+    text-align: left; /* Alinha labels (se existirem) à esquerda */
+}
+
+.login-form input {
+    width: 100%;
+    padding: var(--n26-spacing-m);
+    font-size: 1rem; /* 16px */
+    border: var(--n26-border-width) solid var(--n26-border-color);
+    border-radius: var(--n26-border-radius);
+    box-sizing: border-box; /* Garante que o padding não quebra o layout */
+    color: var(--n26-dark-gray);
+    background-color: var(--n26-white);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: var(--n26-green);
+    box-shadow: 0 0 0 3px rgba(43, 105, 122, 0.2); /* Sombra suave N26 */
+}
+
+/* ==============================================
+   Botões
+   ============================================== */
+
+/* Estilo base para todos os botões */
+.btn-primary,
+.btn-secondary {
+    width: 100%;
+    padding: var(--n26-spacing-m);
+    border: var(--n26-border-width) solid transparent;
+    border-radius: var(--n26-border-radius);
+    font-size: 1rem; /* 16px */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+/* Botão Primário (Login / Sign Up) */
+.btn-primary {
+    background-color: var(--n26-green);
+    color: var(--n26-white);
+}
+
+.btn-primary:hover {
+    background-color: #218a82; /* Sombra N26 mais escura */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:disabled {
+    background-color: var(--n26-light-gray);
+    cursor: not-allowed;
+    color: var(--n26-dark-gray);
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* Botão Secundário (Google) */
+.btn-secondary {
+    /* [MELHORIA] Preparado para ícone (ex: Google logo) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+
+    /* [CORREÇÃO] Resetado para valores sensatos */
+    font-size: 1rem; 
+    padding: var(--n26-spacing-m);
+
+    background-color: var(--n26-white);
+    color: var(--n26-black);
+    border: var(--n26-border-width) solid var(--n26-border-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--n26-light-gray);
+    border-color: var(--n26-dark-gray);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:disabled {
+    background-color: var(--n26-light-gray);
+    cursor: not-allowed;
+    color: var(--n26-dark-gray);
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* ==============================================
+   Divisor e Links
+   ============================================== */
+
+/* [MELHORIA] Divisor "OR" mais elegante */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--n26-dark-gray);
+    margin: var(--n26-spacing-l) 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--n26-border-color);
+}
+
+.divider::before {
+    margin-right: 0.5em;
+}
+
+.divider::after {
+    margin-left: 0.5em;
+}
+
+/* Link para trocar (Log In / Sign Up) */
+.switch-mode {
+    margin-top: var(--n26-spacing-l);
+    font-size: 0.875rem; /* 14px */
+}
+
+.switch-mode p {
+    margin: 0;
+    color: var(--n26-dark-gray);
+}
+
+.switch-mode button {
+    background: none;
+    border: none;
+    color: var(--n26-green);
+    font-weight: 600;
+    font-size: 0.875rem; /* Garante que tem o mesmo tamanho do texto */
+    cursor: pointer;
+    padding: 0;
+    margin-left: var(--n26-spacing-xs);
+    text-decoration: none; /* [MELHORIA] */
+    transition: color 0.2s ease;
+}
+
+.switch-mode button:hover {
+    text-decoration: underline; /* [MELHORIA] */
+    color: #218a82;
+}
+
+/* ==============================================
+   Mensagens de Erro/Sucesso
+   (O seu código original estava bom!)
+   ============================================== */
+.message {
+    margin-top: var(--n26-spacing-m);
+    padding: var(--n26-spacing-m);
+    border-radius: var(--n26-border-radius);
+    font-weight: 500;
+    text-align: left; /* Mensagens de erro são mais fáceis de ler à esquerda */
+}
+
+.message.error {
+    background-color: #ffebeb;
+    color: var(--n26-red);
+    border: 1px solid var(--n26-red);
+}
+
+.message.success {
+    background-color: #ebffeb;
+    color: #2b697a; /* N26 green */
+    border: 1px solid #2b697a;
+}

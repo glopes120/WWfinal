@@ -1,0 +1,28 @@
+.monthly-chart-container {
+  position: relative;
+  height: 300px; /* ou a altura que preferir */
+  width: 100%;
+}
+
+.chart-type-toggle {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.chart-type-toggle button {
+  background-color: var(--ww-bg-elevated, #f0f0f0);
+  border: 1px solid var(--ww-border-color, #ddd);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--ww-border-radius-m, 8px);
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.chart-type-toggle button.active {
+  background-color: var(--ww-accent-color, #007bff);
+  color: white;
+  border-color: var(--ww-accent-color, #007bff);
+}

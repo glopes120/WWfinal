@@ -1,0 +1,59 @@
+.profile-container {
+    background-color: var(--n26-white);
+    padding: var(--n26-spacing-l);
+    border-radius: var(--n26-border-radius);
+    box-shadow: var(--n26-shadow-s);
+    margin-top: var(--n26-spacing-l); /* Add some top margin for separation */
+}
+
+.profile-container h3 {
+    font-family: var(--n26-font-family-secondary); /* Use Poppins for headings */
+    font-size: 1.25rem;
+    margin-bottom: var(--n26-spacing-m);
+    color: var(--n26-black);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--n26-spacing-m);
+    margin-bottom: var(--n26-spacing-l);
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+    padding-bottom: var(--n26-spacing-s); /* Add padding for separation */
+    border-bottom: 1px solid var(--n26-light-gray); /* Subtle separator */
+}
+
+.info-item:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.info-label {
+    font-weight: 500;
+    color: var(--n26-dark-gray);
+}
+
+.info-value {
+    color: var(--n26-black); /* Ensure consistent text color */
+}
+
+.logout-btn {
+    background-color: var(--n26-red);
+    color: var(--n26-white);
+    width: 100%;
+    padding: var(--n26-spacing-m);
+    border: none;
+    border-radius: var(--n26-border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c53030; /* Darker red on hover */
+}
