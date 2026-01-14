@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import './LandingPage.css';
 
-/**
- * LandingPage Component
- * ------------------------------------------------------------------
- * Esta página é a "capa" do projeto.
- * Funcionalidades:
- * 1. Apresentação visual do produto.
- * 2. Teste de Webservice: Consome /api/status para mostrar que o backend está ligado.
- * 3. Botão para levar o utilizador ao Login/Registo.
- */
 export default function LandingPage({ onEnterApp }) {
-    // Estado para guardar a resposta do servidor
     const [serverStatus, setServerStatus] = useState(null);
-    // Estado para controlar o carregamento do teste de API
     const [loadingStatus, setLoadingStatus] = useState(true);
 
-    // Efeito para testar o Webservice assim que a página carrega
     useEffect(() => {
         const checkServer = async () => {
             try {
-                // Tenta contactar o nosso Webservice local (ou produção se o URL for relativo)
-                // Usamos o porto 3004 porque é onde o server.js está a correr
-                const response = await fetch('http://localhost:3004/api/status');
+                // LÓGICA DE PRODUÇÃO:
+                // 1. Tenta usar a variável de ambiente VITE_API_URL (configurada no Vercel)
+                // 2. Se não existir, assume que estamos localmente (localhost:3004)
+                // 3. Se estivermos no Vercel sem backend configurado, isto vai falhar silenciosamente (catch).
+                const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3004';
                 
+                // Timeout curto (2s) para não ficar "Checking..." para sempre se o server não responder
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 2000);
+
+                const response = await fetch(`${apiUrl}/api/status`, { 
+                    signal: controller.signal 
+                });
+                
+                clearTimeout(timeoutId);
+
                 if (response.ok) {
                     const data = await response.json();
                     setServerStatus(data);
@@ -31,7 +31,8 @@ export default function LandingPage({ onEnterApp }) {
                     setServerStatus({ status: 'offline' });
                 }
             } catch (error) {
-                console.error("Erro ao contactar webservice:", error);
+                // Se falhar (ex: Vercel não consegue aceder ao localhost), define como offline
+                console.log("Webservice indisponível (normal se estiveres no Vercel sem Backend alojado).");
                 setServerStatus({ status: 'offline' });
             } finally {
                 setLoadingStatus(false);
@@ -43,24 +44,20 @@ export default function LandingPage({ onEnterApp }) {
 
     return (
         <div className="landing-container">
-            {/* Navegação Simples */}
             <nav className="landing-nav">
                 <div className="landing-logo">
                     <span className="logo-icon">W</span> WiseWallet
                 </div>
                 <div className="landing-links">
-                    {/* Badge indicador de estado da API */}
                     <span className="api-badge">
-                        Status API: 
+                        System: 
                         <span className={`status-indicator ${serverStatus?.status === 'online' ? 'green' : 'red'}`}></span>
-                        {loadingStatus ? 'Checking...' : (serverStatus?.status === 'online' ? 'Online' : 'Offline')}
+                        {loadingStatus ? 'Checking...' : (serverStatus?.status === 'online' ? 'Online' : 'Vercel Mode')}
                     </span>
-                    {/* Botão para ir para o Ecrã de Login */}
                     <button onClick={onEnterApp} className="btn-login-nav">Login</button>
                 </div>
             </nav>
 
-            {/* Secção Hero (Principal) */}
             <header className="hero-section">
                 <div className="hero-content">
                     <h1 className="hero-title">
@@ -73,23 +70,22 @@ export default function LandingPage({ onEnterApp }) {
                     
                     <div className="cta-group">
                         <button onClick={onEnterApp} className="btn-primary-lg">
-                            Começar Agora Gratuitamente
+                            Começar Agora
                         </button>
                         <button className="btn-secondary-lg">
                             Saber Mais
                         </button>
                     </div>
 
-                    {/* Área de Demonstração do Webservice (só aparece se estiver online) */}
+                    {/* Só mostra a caixa de mensagem se o servidor respondeu realmente */}
                     {serverStatus && serverStatus.status === 'online' && (
                         <div className="server-message-box">
-                            <p>🤖 <strong>Mensagem do Webservice:</strong> "{serverStatus.messageOfTheDay}"</p>
-                            <small>Server Uptime: {serverStatus.uptime} | Time: {serverStatus.serverTime}</small>
+                            <p>🤖 <strong>API Diz:</strong> "{serverStatus.messageOfTheDay}"</p>
+                            <small>Uptime: {serverStatus.uptime}</small>
                         </div>
                     )}
                 </div>
 
-                {/* Elemento Visual Decorativo (Mockup abstrato com animação) */}
                 <div className="hero-visual">
                     <div className="floating-card card-1">
                         <span>💰 Poupança</span>
@@ -103,11 +99,10 @@ export default function LandingPage({ onEnterApp }) {
                 </div>
             </header>
 
-            {/* Secção de Features */}
             <section className="features-grid">
                 <div className="feature-card">
                     <div className="icon">📊</div>
-                    <h3>Analytics em Tempo Real</h3>
+                    <h3>Analytics</h3>
                     <p>Visualiza para onde vai o teu dinheiro com gráficos interativos.</p>
                 </div>
                 <div className="feature-card">
@@ -117,7 +112,7 @@ export default function LandingPage({ onEnterApp }) {
                 </div>
                 <div className="feature-card">
                     <div className="icon">🌍</div>
-                    <h3>Mercados Globais</h3>
+                    <h3>Mercados</h3>
                     <p>Acompanha Cripto e Ações diretamente na tua dashboard.</p>
                 </div>
             </section>
